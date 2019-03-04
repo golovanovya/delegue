@@ -47,14 +47,12 @@ $config = [
             'defaultRoles' => ['guest', 'user'],
         ],
         'db' => $db,
-        /*
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
             ],
         ],
-        */
     ],
     'params' => $params,
     'modules' => [
