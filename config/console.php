@@ -26,15 +26,32 @@ $config = [
             ],
         ],
         'db' => $db,
-    ],
-    'params' => $params,
-    /*
-    'controllerMap' => [
-        'fixture' => [ // Fixture generation command line.
-            'class' => 'yii\faker\FixtureController',
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager',
+            'defaultRoles' => ['guest', 'user'],
         ],
     ],
-    */
+    'params' => $params,
+    
+    'controllerMap' => [
+        /*'fixture' => [ // Fixture generation command line.
+            'class' => 'yii\faker\FixtureController',
+        ],*/
+        'migrate' => [
+            'class' => 'yii\console\controllers\MigrateController',
+            'migrationPath' => [
+                '@yii/rbac/migrations',
+                '@app/migrations'
+            ],
+            'migrationNamespaces' => [],
+        ],
+    ],
+    
+    'modules' => [
+        'rbac' => [
+            'class' => 'yii2mod\rbac\ConsoleModule'
+        ]
+    ]
 ];
 
 if (YII_ENV_DEV) {

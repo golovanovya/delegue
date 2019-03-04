@@ -42,6 +42,10 @@ $config = [
                 ],
             ],
         ],
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager',
+            'defaultRoles' => ['guest', 'user'],
+        ],
         'db' => $db,
         /*
         'urlManager' => [
@@ -53,6 +57,11 @@ $config = [
         */
     ],
     'params' => $params,
+    'modules' => [
+        'rbac' => [
+            'class' => 'yii2mod\rbac\ConsoleModule'
+        ]
+    ]
 ];
 
 if (YII_ENV_DEV) {
