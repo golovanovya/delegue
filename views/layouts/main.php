@@ -42,6 +42,15 @@ AppAsset::register($this);
             ['label' => 'Home', 'url' => ['/site/index']],
             ['label' => 'About', 'url' => ['/site/about']],
             ['label' => 'Contact', 'url' => ['/site/contact']],
+            [
+                'label' => 'Пользователь',
+                'visible' => Yii::$app->user->can('admin'),
+                'items' => [
+                    ['label' => 'Назначения', 'url' => ['/rbac']],
+                    ['label' => 'Роли', 'url' => ['/rbac/role']],
+                    ['label' => 'Создать пользователя', 'url' => ['/user/create']],
+                ]
+            ],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
             ) : (

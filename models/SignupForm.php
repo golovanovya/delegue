@@ -56,4 +56,16 @@ class SignupForm extends Model
         
         return $user->save() ? $user : null;
     }
+    
+    /**
+     * {@inheritdoc}
+     */
+    public function attributeLabels(): array
+    {
+        return [
+            'id' => 'ID',
+            'username' => 'Логин',
+            'password' => 'Пароль',
+        ];
+    }
 }
