@@ -40,8 +40,8 @@ $config = [
         'migrate' => [
             'class' => 'yii\console\controllers\MigrateController',
             'migrationPath' => [
+                '@app/migrations',
                 '@yii/rbac/migrations',
-                '@app/migrations'
             ],
             'migrationNamespaces' => [],
         ],
