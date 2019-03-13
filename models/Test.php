@@ -2,8 +2,6 @@
 
 namespace app\models;
 
-use Yii;
-
 /**
  * This is the model class for table "test".
  *
@@ -13,6 +11,19 @@ use Yii;
  */
 class Test extends \yii\db\ActiveRecord
 {
+    /**
+     * {@inheritdoc}
+     */
+    public function behaviors(): array
+    {
+        return [
+            'versions' => [
+                'class' => \app\components\VersionLogBehavior::class,
+                'loggingAttributes' => ['title'],
+            ],
+        ];
+    }
+    
     /**
      * {@inheritdoc}
      */
