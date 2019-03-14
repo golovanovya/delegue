@@ -34,5 +34,21 @@ $this->params['breadcrumbs'][] = $this->title;
             'content:ntext',
         ],
     ]) ?>
-
+    <?php
+    while ($model->getVersionPrevious()) {
+        echo DetailView::widget([
+            'model' => $model,
+            'attributes' => [
+                'id',
+                'title',
+                'content:ntext',
+                'versionUpdatedBy',
+                [
+                    'attribute' => 'versionUpdatedAt',
+                    'format' => 'dateTime',
+                ],
+            ],
+        ]);
+    }
+    ?>
 </div>

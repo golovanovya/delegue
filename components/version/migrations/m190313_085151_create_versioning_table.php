@@ -18,6 +18,7 @@ class m190313_085151_create_versioning_table extends Migration
             'created_at' => $this->dateTime(),
             'object_id' => $this->bigInteger(),
             'object_class' => $this->string(),
+            'version' => $this->integer(),
             'data' => $this->text(),
             'created_by' => $this->string(),
         ]);
@@ -28,6 +29,6 @@ class m190313_085151_create_versioning_table extends Migration
      */
     public function safeDown()
     {
-        $this->dropTable('{{%versioning}}');
+        $this->dropTable('{{%version_logger}}');
     }
 }

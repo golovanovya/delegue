@@ -18,7 +18,7 @@ class Test extends \yii\db\ActiveRecord
     {
         return [
             'versions' => [
-                'class' => \app\components\VersionLogBehavior::class,
+                'class' => \app\components\version\VersionLogBehavior::class,
                 'loggingAttributes' => ['title'],
             ],
         ];
